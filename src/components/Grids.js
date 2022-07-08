@@ -6,7 +6,6 @@ import Strawberry from './../assets/charms-icons/Strawberry.png';
 import Heart from './../assets/charms-icons/heart.png';
 import Butterfly from './../assets/charms-icons/butterfly.png';
 
-import Timer from './Timer'
 
 import styled from 'styled-components';
 
