@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components'
+import Grids from '../components/Grids';
 import Logo from '../components/Logo';
 
 import BackgroundImg from './../assets/main_desktop_background.png'
@@ -19,6 +20,7 @@ function Homepage () {
     return (  
         <Wrapper>
            <Logo/>
+           <Grids />
         </Wrapper>
     );
 }
