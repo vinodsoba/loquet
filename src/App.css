@@ -16,3 +16,51 @@
 .btn-start {
   color: #fff;
 }
+
+.help__guide--headline {
+  font-family: 'Fournier MT Regular SC';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 19px;
+  line-height: 104.3%;
+  /* or 20px */ 
+}
+
+.help__guide--paragraph {
+  font-family: 'Fournier MT Pro';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 128.3%;
+  /* or 19px */
+  text-align: center;
+  letter-spacing: 0.02em;
+  color: #FFFFFF;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.help__guide--headline h4 {
+  color: #FFFFFF;
+  text-align: center;
+  letter-spacing: 0.06em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+
+.rounded__box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.rounded__box--image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: black;
+  background-repeat: no-repeat;
+  background-size: cover;
+ 
+}
