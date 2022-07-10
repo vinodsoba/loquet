@@ -10,19 +10,6 @@ import StopWatch from './StopWatch'
 
 import styled from 'styled-components'
 
-const BoardContainer = styled.div `
-    max-width: 1400px;
-    height: 900px;
-    background-color: transparent;
-    border-radius: 20px;
-    width:100%;
-`;
-
-const BoardContainer_Container = styled.div `
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-`;
 
 const Box = styled.div`
     width: 80px;
@@ -39,96 +26,104 @@ const GridItems = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+
+    @media (max-width: 834px) {
+        
+
+    }
 `;
 
 
 function Grids() {
     return ( 
-        <Container> 
-            <Row>    
-                <Col md={4}>                   
-                    <div className="timer"><StopWatch /></div>
-                
-                    <GridItems>
-                        <Row>
-                            <Box id="box1" className="box"><img src={Strawberry} draggable="true" /></Box>
-                            <Box id="box2" className="box"></Box>
-                            <Box id="box3" className="box"></Box>
-                            <Box id="box4" className="box"></Box>                                          
+        <div className='flex-container'>
+            <Container> 
+                <Row>    
+                    <Col sm={12} md={6} lg={4}>                   
+                        <div className="timer"><StopWatch /></div>
+                    
+                        <GridItems>
+                            <Row>
+                                <Box id="box1" className="box"><img src={Strawberry} draggable="true" /></Box>
+                                <Box id="box2" className="box"></Box>
+                                <Box id="box3" className="box"></Box>
+                                <Box id="box4" className="box"></Box>                                          
+                            
+                                <Box id="box5" className="box"></Box>
+                                <Box id="box6" className="box"><img src={Heart} draggable="true" /></Box>
+                                <Box id="box7" className="box"></Box>
+                                <Box id="box8" className="box"><img src={Mushroom} draggable="true" /></Box>
+                            </Row>
+                            <Row>
+                                <Box id="box9" className="box"><img src={Mushroom} draggable="true" /></Box>
+                                <Box id="box10" className="box"></Box>
+                                <Box id="box11" className="box"><img src={Butterfly} draggable="true" /></Box>
+                                <Box id="box12" className="box"></Box>
                         
-                            <Box id="box5" className="box"></Box>
-                            <Box id="box6" className="box"><img src={Heart} draggable="true" /></Box>
-                            <Box id="box7" className="box"></Box>
-                            <Box id="box8" className="box"><img src={Mushroom} draggable="true" /></Box>
-                        </Row>
-                        <Row>
-                            <Box id="box9" className="box"><img src={Mushroom} draggable="true" /></Box>
-                            <Box id="box10" className="box"></Box>
-                            <Box id="box11" className="box"><img src={Butterfly} draggable="true" /></Box>
-                            <Box id="box12" className="box"></Box>
-                       
-                            <Box id="box13" className="box"><img src={Heart} draggable="true" /></Box>
-                            <Box id="box14" className="box"></Box>
-                            <Box id="box15" className="box"></Box>
-                            <Box id="box16" className="box"></Box>
-                        </Row>    
-                    </GridItems>
+                                <Box id="box13" className="box"><img src={Heart} draggable="true" /></Box>
+                                <Box id="box14" className="box"></Box>
+                                <Box id="box15" className="box"></Box>
+                                <Box id="box16" className="box"></Box>
+                            </Row>    
+                        </GridItems>
 
-                    <button id="btn__reset">Reset</button>
-            
-                </Col>
-                   
-                <Col md={4}>
-                <div className="help__guide">
+                        <button id="btn__reset">Reset</button>
+                
+                    </Col>
+                    
+                    <Col sm={12} md={10} lg={8}>
+                    <div className="help__guide">
+                        <div className="help__guide--headline">
+                            <h4>HOW TO PLAY</h4>
+                        </div>
+                        <div className="help__guide--paragraph">
+                            <p>Logic based, charm placement puzzle. 
+                                The objective is to fill 6x6 grid with charms, so that each column, each row and each of the none 3x3 subgrids contain all 9 charms.
+                            </p>
+                        </div>
+                    </div>  
+                    <div>
                     <div className="help__guide--headline">
-                        <h4>HOW TO PLAY</h4>
+                            <h4>DRAG AND DROP CHARMS</h4>
+                        </div>
+                    <div className='rounded__box'>
+                    <div 
+                        className="rounded__box--image" 
+                        style={{ backgroundImage: `url(${Mushroom})`}}
+                        draggable="true"
+                    >
                     </div>
-                    <div className="help__guide--paragraph">
-                        <p>Logic based, charm placement puzzle. 
-                            The objective is to fill 6x6 grid with charms, so that each column, each row and each of the none 3x3 subgrids contain all 9 charms.
-                        </p>
+
+                    <div 
+                        className="rounded__box--image" 
+                        style={{ backgroundImage: `url(${Butterfly})`}}
+                        draggable="true"
+                    >
                     </div>
-                </div>  
-                <div>
-                <div className="help__guide--headline">
-                        <h4>DRAG AND DROP CHARMS</h4>
+
+                    <div 
+                        className="rounded__box--image" 
+                        style={{ backgroundImage: `url(${Strawberry})`}}
+                        draggable="true"
+                    >
                     </div>
-                <div className='rounded__box'>
-                <div 
-                    className="rounded__box--image" 
-                    style={{ backgroundImage: `url(${Mushroom})`}}
-                    draggable="true"
-                >
-                </div>
 
-                <div 
-                    className="rounded__box--image" 
-                    style={{ backgroundImage: `url(${Butterfly})`}}
-                    draggable="true"
-                >
-                </div>
+                    <div 
+                        className="rounded__box--image" 
+                        style={{ backgroundImage: `url(${Heart})`}}
+                        draggable="true"
+                    >
+                    </div>
 
-                <div 
-                    className="rounded__box--image" 
-                    style={{ backgroundImage: `url(${Strawberry})`}}
-                    draggable="true"
-                >
-                </div>
-
-                <div 
-                    className="rounded__box--image" 
-                    style={{ backgroundImage: `url(${Heart})`}}
-                    draggable="true"
-                >
-                </div>
-
-                </div>
-                
-                
-                </div>                             
-                </Col>
-            </Row>     
-        </Container>  
+                    </div>
+                    
+                    
+                    </div>                             
+                    </Col>
+                </Row>     
+            </Container>
+        </div>
+          
     );
 }
 
