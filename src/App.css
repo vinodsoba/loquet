@@ -52,7 +52,8 @@
 .rounded__box {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: center;
+  
 }
 
 .rounded__box--image {
@@ -62,5 +63,6 @@
   background-color: black;
   background-repeat: no-repeat;
   background-size: cover;
+  margin-right:20px;
  
 }
