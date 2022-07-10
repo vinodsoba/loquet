@@ -6,3 +6,13 @@
   margin: 0;
   padding: 0;
 }
+
+
+.btn-grp .btn-one {
+  font-size: 1em;
+  color: white
+}
+
+.btn-start {
+  color: #fff;
+}
