@@ -93,10 +93,38 @@ function Grids() {
                 <div className="help__guide--headline">
                         <h4>DRAG AND DROP CHARMS</h4>
                     </div>
-                <img src={Mushroom} draggable="true" />
-                <img src={Butterfly} draggable="true" />
-                <img src={Strawberry} draggable="true" />
-                <img src={Heart} draggable="true" />
+                <div className='rounded__box'>
+                <div 
+                    className="rounded__box--image" 
+                    style={{ backgroundImage: `url(${Mushroom})`}}
+                    draggable="true"
+                >
+                </div>
+
+                <div 
+                    className="rounded__box--image" 
+                    style={{ backgroundImage: `url(${Butterfly})`}}
+                    draggable="true"
+                >
+                </div>
+
+                <div 
+                    className="rounded__box--image" 
+                    style={{ backgroundImage: `url(${Strawberry})`}}
+                    draggable="true"
+                >
+                </div>
+
+                <div 
+                    className="rounded__box--image" 
+                    style={{ backgroundImage: `url(${Heart})`}}
+                    draggable="true"
+                >
+                </div>
+
+                </div>
+                
+                
                 </div>                             
                 </Col>
             </Row>     
