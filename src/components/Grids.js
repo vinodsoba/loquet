@@ -1,13 +1,14 @@
 import React  from 'react'
-import {Row, Col, Container} from 'react-bootstrap';
+import {Row, Col, Container} from 'react-bootstrap'
 // import charms
-import Mushroom from './../assets/charms-icons/mushroom.png';
-import Strawberry from './../assets/charms-icons/Strawberry.png';
-import Heart from './../assets/charms-icons/heart.png';
-import Butterfly from './../assets/charms-icons/butterfly.png';
+import Mushroom from './../assets/charms-icons/mushroom.png'
+import Strawberry from './../assets/charms-icons/Strawberry.png'
+import Heart from './../assets/charms-icons/heart.png'
+import Butterfly from './../assets/charms-icons/butterfly.png'
 
+import StopWatch from './StopWatch'
 
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 const BoardContainer = styled.div `
     max-width: 1400px;
@@ -45,12 +46,8 @@ function Grids() {
     return ( 
         <Container> 
             <Row>    
-                <Col md={4}>
-                    
-                    <button id="btn">Start</button>
-                    <button id="btn__stop">Stop</button>
-                    
-                    <div className="timer"></div>
+                <Col md={4}>                   
+                    <div className="timer"><StopWatch /></div>
                 
                     <GridItems>
                         <Row>
