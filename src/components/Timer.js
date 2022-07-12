@@ -13,13 +13,6 @@ export default function Timer(props) {
             <span className='digits'>{
                 ( "0" + Math.floor((props.time / 6000) * 60)).slice(-2)
             }</span>
-
-           
-
-            
-
-           
-
         </div>
     )
 }

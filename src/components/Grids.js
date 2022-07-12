@@ -39,7 +39,7 @@ function Grids() {
         <div className='flex-container'>
             <Container> 
                 <Row>    
-                    <Col sm={12} md={6} lg={4}>                   
+                    <Col sm={12} md={6} lg={4} style={{ marginRight: '319px'}}>                   
                         <div className="timer"><StopWatch /></div>
                     
                         <GridItems>
@@ -65,13 +65,10 @@ function Grids() {
                                 <Box id="box15" className="box"></Box>
                                 <Box id="box16" className="box"></Box>
                             </Row>    
-                        </GridItems>
-
-                        <button id="btn__reset">Reset</button>
-                
+                        </GridItems>                
                     </Col>
                     
-                    <Col sm={12} md={10} lg={8}>
+                    <Col sm={12} md={10} lg={5}>
                     <div className="help__guide">
                         <div className="help__guide--headline">
                             <h4>HOW TO PLAY</h4>
