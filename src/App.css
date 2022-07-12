@@ -7,6 +7,10 @@
   padding: 0;
 }
 
+.timer {
+  max-width: 356px;
+  width: 100%;
+}
 
 .btn-grp .btn-one {
   font-size: 1em;
