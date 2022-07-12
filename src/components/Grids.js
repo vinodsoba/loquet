@@ -26,9 +26,11 @@ const GridItems = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  max-width: 365px;
+  width: 100%;
+
 
     @media (max-width: 834px) {
-        
 
     }
 `;
@@ -39,7 +41,7 @@ function Grids() {
         <div className='flex-container'>
             <Container> 
                 <Row>    
-                    <Col sm={12} md={6} lg={4} style={{ marginRight: '319px'}}>                   
+                    <Col sm={12} md={6} lg={4}>                   
                         <div className="timer"><StopWatch /></div>
                     
                         <GridItems>
@@ -67,7 +69,7 @@ function Grids() {
                             </Row>    
                         </GridItems>                
                     </Col>
-                    
+                    <Col lg={1}></Col>
                     <Col sm={12} md={10} lg={5}>
                     <div className="help__guide">
                         <div className="help__guide--headline">
