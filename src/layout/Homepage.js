@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components'
-import Grids from '../components/Grids';
+import DragAndDrop from '../components/DragAndDrop';
+
 import Logo from '../components/Logo';
 
 import BackgroundImg from './../assets/main_desktop_background.png'
@@ -20,15 +21,15 @@ const Wrapper = styled.div `
     }
 `; 
 
-
-
-function Homepage () {
-    return (  
-        <Wrapper>
-           <Logo/>
-           <Grids />
-        </Wrapper>
-    );
+export default class Homepage extends React.Component {
+    render() {
+        return (  
+            <Wrapper>
+               <Logo/>
+               <DragAndDrop />
+            </Wrapper>
+        );
+    }
+    
 }
 
-export default Homepage;
