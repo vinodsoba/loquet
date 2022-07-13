@@ -74,3 +74,10 @@
 .App-logo {
   width: 283px;
 }
+
+.flex-container {
+  display: flex;
+}
+.item2 {
+  flex-grow: 1;
+}
