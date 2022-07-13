@@ -70,7 +70,7 @@ function Grids() {
                         </GridItems>                
                     </Col>
                     <Col lg={1}></Col>
-                    <Col sm={12} md={10} lg={5}>
+                    <Col sm={12} md={10} lg={5} className="item2">
                     <div className="help__guide">
                         <div className="help__guide--headline">
                             <h4>HOW TO PLAY</h4>
