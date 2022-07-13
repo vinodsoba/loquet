@@ -78,6 +78,6 @@
 .flex-container {
   display: flex;
 }
-.item2 {
+.item1.col-lg-4.col-md-6.col-sm-12 {
   flex-grow: 1;
 }

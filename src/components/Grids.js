@@ -41,7 +41,7 @@ function Grids() {
         <div className='flex-container'>
             <Container> 
                 <Row>    
-                    <Col sm={12} md={6} lg={4}>                   
+                    <Col sm={12} md={6} lg={4} className="item1">                   
                         <div className="timer"><StopWatch /></div>
                     
                         <GridItems>
