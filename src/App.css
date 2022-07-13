@@ -10,6 +10,7 @@
 .timer {
   max-width: 356px;
   width: 100%;
+  padding-top: 98px;
 }
 
 .btn-grp .btn-one {
@@ -30,26 +31,34 @@
   /* or 20px */ 
 }
 
+.help__guide {
+  padding-top: 12em;
+  justify-content: center;
+  display: grid;
+}
+
 .help__guide--paragraph {
   font-family: 'Fournier MT Pro';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 15px;
-  line-height: 128.3%;
-  /* or 19px */
-  text-align: center;
-  letter-spacing: 0.02em;
-  color: #FFFFFF;
-  padding-top: 1em;
-  padding-bottom: 1em;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 19.25px;
+    text-align: center;
+    letter-spacing: 0.02em;
+    color: #FFFFFF;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    width: 288px;
+    height: 83px;
 }
 
 .help__guide--headline h4 {
   color: #FFFFFF;
   text-align: center;
   letter-spacing: 0.06em;
-  padding-top: 1em;
-  padding-bottom: 1em;
+  padding-top: 2em;
+  line-height: 104.3%;
+  font-size: 19px;
 }
 
 
@@ -72,7 +81,8 @@
 }
 
 .App-logo {
-  width: 283px;
+  max-width: 130px;
+  width: 100%;
 }
 
 .flex-container {
