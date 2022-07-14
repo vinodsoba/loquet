@@ -1,13 +1,15 @@
 import React from "react";
 import {Row, Col, Container} from 'react-bootstrap'
 
-import StopWatch from './StopWatch'
+import ControlButtons from "./ControlButtons";
+import StopWatch from "./StopWatch";
+
 
 import styled from 'styled-components'
 // import charms
 
 import Strawberry from './../assets/charms-icons/Strawberry.png';
-import Heart from './../assets/charms-icons/heart.png';
+import Heart from './../assets/charms-icons/mylove.png';
 import Mushroom  from './../assets/charms-icons/mushroom.png';
 import Butterfly  from './../assets/charms-icons/butterfly.png';
 
@@ -36,6 +38,7 @@ const GridItems = styled.div`
 
 
 export default class DragAndDrop extends React.Component {
+  
   state = {
     tasks: [
     { name: "mushroom", category: "wip", bgcolor: "brown", image: `${Mushroom}`},
@@ -46,6 +49,11 @@ export default class DragAndDrop extends React.Component {
     ]
   };
 
+
+  handleStart = () => {
+    console.log("works");
+   
+  }
   onDragStart = (ev, id) => {
     console.log("dragstart", id);
     ev.dataTransfer.setData("id", id);
@@ -76,6 +84,9 @@ export default class DragAndDrop extends React.Component {
     var tasks = {
       wip: [],
       mushroom: [],
+      butterfly: [],
+      heart: [],
+      strawberry: [],
       complete: []
     };
 
@@ -88,9 +99,9 @@ export default class DragAndDrop extends React.Component {
             this.onDragStart(e, t.name);
           }}
           draggable
-          className="box"
+          
         >
-          <img src={t.image} alt="" />
+          <img src={t.image} alt="" className="box" width="62" height="62"/>
         </div>
 
     </div>
@@ -108,38 +119,70 @@ export default class DragAndDrop extends React.Component {
 
                     <GridItems>
                         <Row>
-                            <Box id="box1" className="box"><img src={Strawberry} draggable="true" /></Box>
+                            <Box id="box1" className="box"><img src={Strawberry} width="60" height="62"/></Box>
                             
-                            <Box id="box2" className="box" 
+                            <Box id="box2" className="box-opacity" 
                             onDragOver={(e) => {this.onDragOver(e)}} 
                             onDrop={(e) => {this.onDrop(e, "mushroom");}}>
                                 {tasks.mushroom}
                                 
                             </Box>
 
-                            <Box id="box3" className="box"></Box>
-                            <Box id="box4" className="box"></Box>                                          
+                            <Box id="box3" className="box-opacity"
+                             onDragOver={(e) => {this.onDragOver(e)}} 
+                             onDrop={(e) => {this.onDrop(e, "butterfly");}}>                          
+                              {tasks.butterfly}
+                            </Box>
+                            <Box id="box4" className="box-opacity"
+                            onDragOver={(e) => {this.onDragOver(e)}}
+                            onDrop={(e) => {this.onDrop(e, "heart")}}
+                            >{tasks.heart}</Box>                                          
                         
-                            <Box id="box5" className="box"></Box>
-                            <Box id="box6" className="box"><img src={Heart} draggable="true" /></Box>
-                            <Box id="box7" className="box"></Box>
-                            <Box id="box8" className="box"><img src={Mushroom} draggable="true" /></Box>
+                            <Box id="box5" className="box-opacity"
+                             onDragOver={(e) => {this.onDragOver(e)}}
+                             onDrop={(e) => {this.onDrop(e, "heart")}}
+                             >{tasks.heart}</Box>
+
+                            <Box id="box6" className="box"><img src={Heart} width="60" height="62" /></Box>
+                            <Box id="box7" className="box-opacity"
+                             onDragOver={(e) => {this.onDragOver(e)}}
+                             onDrop={(e) => {this.onDrop(e, "mushroom")}}
+                            >{tasks.mushroom}</Box>
+
+                            <Box id="box8" className="box"><img src={Mushroom} width="60" height="62" /></Box>
                         </Row>
                         <Row>
-                            <Box id="box9" className="box"><img src={Mushroom} draggable="true" /></Box>
-                            <Box id="box10" className="box"></Box>
-                            <Box id="box11" className="box"><img src={Butterfly} draggable="true" /></Box>
-                            <Box id="box12" className="box"></Box>
+                            <Box id="box9" className="box"><img src={Mushroom} width="60" height="62" /></Box>
+                            <Box id="box10" className="box-opacity"
+                             onDragOver={(e) => {this.onDragOver(e)}}
+                             onDrop={(e) => {this.onDrop(e, "strawberry")}}
+                            >{tasks.strawberry}</Box>
+
+                            <Box id="box11" className="box"><img src={Butterfly} width="60" height="62" /></Box>
+                            <Box id="box12" className="box-opacity"
+                            onDragOver={(e) => {this.onDragOver(e)}}
+                            onDrop={(e) => {this.onDrop(e, "heart")}}
+                            >{tasks.heart}</Box>
                     
-                            <Box id="box13" className="box"><img src={Heart} draggable="true" /></Box>
-                            <Box id="box14" className="box"></Box>
-                            <Box id="box15" className="box"></Box>
-                            <Box id="box16" className="box"></Box>
+                            <Box id="box13" className="box"><img src={Heart} width="60" height="62" /></Box>
+                            <Box id="box14" className="box-opacity"
+                             onDragOver={(e) => {this.onDragOver(e)}}
+                             onDrop={(e) => {this.onDrop(e, "heart")}}
+                             >{tasks.heart}</Box>
+
+                            <Box id="box15" className="box-opacity"
+                             onDragOver={(e) => {this.onDragOver(e)}}
+                             onDrop={(e) => {this.onDrop(e, "mushroom")}}
+                             >{tasks.mushroom}</Box>
+                            <Box id="box16" className="box-opacity"
+                            onDragOver={(e) => {this.onDragOver(e)}}
+                            onDrop={(e) => {this.onDrop(e, "heart")}}
+                            >{tasks.heart}</Box>
                         </Row>    
                     </GridItems>                
                 </Col>
 
-                <Col lg={1}></Col>
+                <Col lg={3}></Col>
             
                 <Col sm={12} md={10} lg={5} className="item2">
                     <div className="help__guide">
@@ -153,19 +196,22 @@ export default class DragAndDrop extends React.Component {
                         </div>
                     </div>  
                     <div
-                        
                         onDragOver={(e) => {
                           this.onDragOver(e);
                         }}
                         onDrop={(e) => {
                           this.onDrop(e, "wip");
                         }}
+
                     >
                         <div 
                         className="help__guide--headline">
                                 <h4>DRAG AND DROP CHARMS</h4>
                         </div>
-                        <div className='rounded__box'>{tasks.wip}</div>                    
+                       
+                        <div className='rounded__box'>{tasks.wip}</div>                  
+                       
+                                           
                     </div>                             
                 </Col>
             </Row>
