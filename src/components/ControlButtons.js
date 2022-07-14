@@ -12,13 +12,22 @@ function ControlButtons(props) {
         <div className="btn-grp"
         onClick={props.handleReset}>
           Reset
-        </div>  
-  
-        
+        </div>         
       );
+
+    const ActiveButtonsPause = (
+      <div className="btn-grp"
+      onClick={props.handlePauseResume}>
+        Pause
+      </div>
+    );
+     
     return (  
         <div className='Control-Buttons'>
-            <div>{props.active ? ActiveButtons : StartButton}</div>
+            <div>{props.active ? ActiveButtons : StartButton }</div>
+
+            <div>{props.active ? ActiveButtonsPause : '' }</div>
+
         </div>
     );
 }

@@ -96,10 +96,15 @@
 
 
 .box {
-  height: 42px;
-  width: 42px;
-  background: aliceblue;
-  margin: 18px;
+  height: 62px;
+  width: 60px;
+  background: #fff;
+  margin: 8px;
+  border-radius: 50%
+}
+
+.box-opacity {
+  opacity: 0.3;
 }
 
 .box1 {
