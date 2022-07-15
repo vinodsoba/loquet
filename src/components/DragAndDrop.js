@@ -50,10 +50,17 @@ export default class DragAndDrop extends React.Component {
   };
 
 
-  handleStart = () => {
-    console.log("works");
+  handleTouchStart = (ev, id) => {
+    console.log("start", id);
+    ev.dataTransfer.setData("id", id);
    
-  }
+  };
+
+  handleTouchMove = (e) => {
+    console.log("move");
+    e.preventDefault();
+  };
+
   onDragStart = (ev, id) => {
     console.log("dragstart", id);
     ev.dataTransfer.setData("id", id);
@@ -202,6 +209,9 @@ export default class DragAndDrop extends React.Component {
                         onDrop={(e) => {
                           this.onDrop(e, "wip");
                         }}
+
+                        onTouchStart={this.handleTouchStart}
+                        onTouchMove={this.handleTouchMove}
 
                     >
                         <div 
