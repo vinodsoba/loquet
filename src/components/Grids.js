@@ -36,7 +36,7 @@ const GridItems = styled.div`
 `;
 
 
-function Grids() {
+function Grids(props) {
     return ( 
         <div className='flex-container'>
             <Container> 

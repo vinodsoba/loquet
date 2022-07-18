@@ -16,10 +16,13 @@ import Butterfly  from './../assets/charms-icons/butterfly.png';
 const Box = styled.div`
     width: 80px;
     height: 80px;
-    border: solid 1px #000;
     margin:5px;
     border-radius: 10px; 
     background-color: #fff;
+
+    @media (max-width: 834px) {
+      background-color: #fff;
+    }
 `;
 
 const GridItems = styled.div`
@@ -28,11 +31,6 @@ const GridItems = styled.div`
   align-items: flex-start;
   max-width: 365px;
   width: 100%;
-
-
-    @media (max-width: 834px) {
-
-    }
 `;
 
 
@@ -121,7 +119,7 @@ export default class DragAndDrop extends React.Component {
         <div className='flex-container'>
         <Container> 
             <Row> 
-                <Col sm={12} md={6} lg={4} className="item1"> 
+                <Col sm={12} md={6} lg={5} className="item1"> 
                     <div className="timer"><StopWatch /></div>
 
                     <GridItems>
@@ -189,7 +187,7 @@ export default class DragAndDrop extends React.Component {
                     </GridItems>                
                 </Col>
 
-                <Col lg={3}></Col>
+                <Col lg={2}></Col>
             
                 <Col sm={12} md={10} lg={5} className="item2">
                     <div className="help__guide">
