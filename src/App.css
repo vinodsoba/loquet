@@ -146,21 +146,63 @@
 }
 
 .completed__task > .form {
-  width: 531px;
-  height: 332px;
+  max-width: 531px;
+  width: 100%;
+  height: auto;
   background-color: #fff;
   border-radius: 25px;
   display: flex;
   align-items: center;
-  justify-content: start;
+  justify-content: center;
   flex-direction: column;
   margin-top:2em;
 }
 
+.completed__task > .form p {
+  width: 213px;
+  height: 94.59px;
+  font-family: 'Fournier MT Pro';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 113.3%;
+  /* or 17px */
+  text-align: center;
+  letter-spacing: 0.02em;
+  color: #000000;
+  padding-top: 1em;;
+}
+
+.completed__task > .copy {
+  position: absolute;
+  bottom: 40px;
+  width: 297px;
+  height: 46px;
+  font-family: 'Fournier MT Pro';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 128.3%;
+  /* or 13px */
+  text-align: center;
+  letter-spacing: 0.04em;
+
+  color: #000000;
+
+}
+.completed__task > .form > .form-fields {
+  text-align: left;
+  width: 92%;
+}
+
+.completed__task > .form > .form-fields h5 {
+  border-bottom: solid 1px #ddd;
+}
+
 .completed__task > p {
-  color: #fff;
   display: flex;
   justify-content: space-between;
+  
 }
 
 .completed__task > button {
@@ -172,10 +214,9 @@
   position: relative;
 }
 
-.completed__task > button:after {
-  content: 'icon';
-  color: #fff;
-  position: absolute;
-  right:2px;
-
+.completed__task > .copy {
+  padding-top:2em;
+  padding-bottom: 2em;
 }
+
+
