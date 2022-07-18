@@ -21,7 +21,7 @@ const Box = styled.div`
     background-color: #fff;
 
     @media (max-width: 834px) {
-      background-color: #fff;
+      background-color: #fff !important;
     }
 `;
 
@@ -189,7 +189,7 @@ export default class DragAndDrop extends React.Component {
 
                 <Col lg={2}></Col>
             
-                <Col sm={12} md={10} lg={5} className="item2">
+                <Col sm={12} md={12} lg={5} className="item2">
                     <div className="help__guide">
                         <div className="help__guide--headline">
                             <h4>HOW TO PLAY</h4>
