@@ -1,20 +1,52 @@
 import React from 'react';
 
+import BackgroundImg from './../assets/completion_background_desktop.png'
+import MobileBackgroundImg from './../assets/completion_background_mobile.png'
+import Logo from '../components/Logo';
+import styled from 'styled-components'
+
+
+const Wrapper = styled.div `
+    background-image: url(${BackgroundImg});
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+
+    @media (max-width: 834px) {
+        background-image: url(${MobileBackgroundImg});
+        height: 100%;
+
+    }
+`; 
+
 export default class Completed extends React.Component {
+
+    constructor(props){
+        super(props);
+            this.handleClick = this.handleClick.bind(this);
+        
+    }
+
+    handleClick() {
+        alert("button is working");
+    }
+    
     render() {
+        
         return (
-            <div className="completed__task">
-                <h1>Completed Task</h1>
-                <p>You completed it in 0.52 seconds!</p>
-                <button></button>
+            <Wrapper>
+                <Logo />
+                 <div className="completed__task">
+                    <p>You completed it in 0.52 seconds!</p>
+                    <button onClick={this.handleClick}>SHARE</button>
 
-                <div className='form'>
-                    Form will go here
+                    <div className='form'>
+                        Form will go here
+                    </div>
+
+                    <div className="copy">* By signing up you agree with our Terms and Conditions, Privacy Policy. To opt out, click Unsubscribe at the bottom of our emails.</div>
                 </div>
-
-                <div className="copy">* By signing up you agree with our Terms and Conditions, Privacy Policy. To opt out, click Unsubscribe at the bottom of our emails.</div>
-            </div>
-            
+            </Wrapper>            
         )
     }
 }
