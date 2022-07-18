@@ -37,6 +37,12 @@
   display: grid;
 }
 
+@media (max-width: 991px) {
+  .help__guide {
+    padding-top: 0;
+  }
+}
+
 .help__guide--paragraph {
   font-family: 'Fournier MT Pro';
     font-style: normal;
@@ -73,7 +79,7 @@
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  background-color: transparent;
+  background-color: #fff;
   background-repeat: no-repeat;
   background-size: cover;
   margin-right:20px;
