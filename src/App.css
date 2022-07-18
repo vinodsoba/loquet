@@ -100,11 +100,17 @@
   width: 60px;
   background: #fff;
   margin: 8px;
-  border-radius: 50%
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .box-opacity {
   opacity: 0.3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .box1 {
