@@ -23,6 +23,11 @@ const Box = styled.div`
     @media (max-width: 834px) {
       background-color: #fff !important;
     }
+
+    @media (max-width: 354px) {
+      width: 66px;
+      height: 66px;
+    }
 `;
 
 const GridItems = styled.div`
@@ -115,7 +120,6 @@ export default class DragAndDrop extends React.Component {
     });
 
     return (
-      <div>
         <div className='flex-container'>
         <Container> 
             <Row> 
@@ -191,7 +195,7 @@ export default class DragAndDrop extends React.Component {
             
                 <Col sm={12} md={12} lg={5} className="item2">
                     <div className="help__guide">
-                        <div className="help__guide--headline">
+                        <div className="help__guide--headline-how-to">
                             <h4>HOW TO PLAY</h4>
                         </div>
                         <div className="help__guide--paragraph">
@@ -212,12 +216,15 @@ export default class DragAndDrop extends React.Component {
                         onTouchMove={this.handleTouchMove}
 
                     >
+                      <div className="help__guide--container">
+                
                         <div 
                         className="help__guide--headline">
                                 <h4>DRAG AND DROP CHARMS</h4>
                         </div>
                        
-                        <div className='rounded__box'>{tasks.wip}</div>                  
+                        <div className='rounded__box'>{tasks.wip}</div>      
+                      </div>            
                        
                                            
                     </div>                             
@@ -225,7 +232,7 @@ export default class DragAndDrop extends React.Component {
             </Row>
         </Container>    
         </div>
-      </div>
+      
     );
   }
 }
