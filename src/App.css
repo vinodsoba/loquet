@@ -10,15 +10,20 @@
 .timer {
   max-width: 356px;
   width: 100%;
-  padding-top: 98px;
+  padding-top: 1em;
+  padding-bottom: 0.4em;
 }
 
 .timer {
   font-family: 'Fournier';
-  font-size: 17px;
+  font-size: 27px;
   font-weight: 500;
   line-height: 21.13px;
   text-align: center;
+}
+
+.timer > span {
+  color: #fff;
 }
 
 .btn-grp .btn-one {
@@ -40,7 +45,7 @@
 }
 
 .help__guide {
-  padding-top: 12em;
+  padding-top: 7em;
   justify-content: center;
   display: grid;
 }

@@ -1,18 +1,19 @@
-import React from 'react'
 
-export default function Timer(props) {
+export default function Timer( props ) {
+
     return (
-        <div>    
-            <span className='digits min'>{
-                ( "0" + Math.floor((props.time / 60000) % 60)).slice(-2)
-            }:</span>
-            <span className='digits'>{
-                ( "0" + Math.floor((props.time / 1000) % 60)).slice(-2)
-            }:</span>
-
-            <span className='digits'>{
-                ( "0" + Math.floor((props.time / 6000) * 60)).slice(-2)
-            }</span>
-        </div>
+      <div className="timer">
+          <span className="hours">
+          {("0" + Math.floor((props.time / 60000) % 60)).slice(-2)}
+          </span>
+          <span>:</span>
+          <span className='mins'>
+          {("0" + Math.floor((props.time / 1000) % 60)).slice(-2)}
+          </span>
+          <span>:</span>
+          <span className='seconds'>
+          {("0" + ((props.time / 10) % 100)).slice(-2)}
+          </span>
+      </div>
     )
-}
+  }
