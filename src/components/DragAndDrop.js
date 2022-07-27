@@ -9,7 +9,7 @@ import styled from 'styled-components'
 // import charms
 
 import Strawberry from './../assets/charms-icons/Strawberry.png';
-import Heart from './../assets/charms-icons/mylove.png';
+import Heart from './../assets/charms-icons/heart.png';
 import Mushroom  from './../assets/charms-icons/mushroom.png';
 import Butterfly  from './../assets/charms-icons/butterfly.png';
 
