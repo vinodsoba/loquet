@@ -4,6 +4,7 @@ import BackgroundImg from './../assets/completion_background_desktop.png'
 import MobileBackgroundImg from './../assets/completion_background_mobile.png'
 import Logo from '../components/Logo';
 import styled from 'styled-components'
+import Form from '../components/Form';
 
 const Button = styled.button `
     max-width: ${props => props.formButton || '233px' };
@@ -57,12 +58,7 @@ export default class Completed extends React.Component {
                         <p>Sign up below to be in with the chance to win a 14kt locket necklace.</p>
 
                         <div className='form-fields'>
-                            <h5>Email</h5>
-                            <h5>First Name</h5>
-                            <h5>Last Name</h5>
-                            <h5>I live in</h5>
-                            <div className='captcha'>Captcha goes here</div>
-                            <Button formButton="490px">SUBMIT</Button>
+                        <Form />
                         </div>
                     </div>
 
