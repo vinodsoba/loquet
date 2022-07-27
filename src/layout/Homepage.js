@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components'
-import DragAndDrop from '../components/DragAndDrop';
+import Grids from '../components/Grids';
 
 import Logo from '../components/Logo';
 
@@ -21,15 +21,54 @@ const Wrapper = styled.div `
     }
 `; 
 
-export default class Homepage extends React.Component {
-    render() {
-        return (  
-            <Wrapper>
-               <Logo/>
-               <DragAndDrop />
-            </Wrapper>
-        );
+function Homepage () {
+    const [isActive, setIsActive] = useState(false);
+    const [time, setTime] = useState(0);
+
+  // timer 
+  useEffect(() => {
+    let interval = null;
+  
+    if(isActive === true){
+      interval = setInterval(() => {
+        setTime((time) => time +10);
+      }, 10);
+    } else {
+      clearInterval(interval);
     }
-    
+    return () => {
+      clearInterval(interval);
+    };
+  })
+
+  const handleStart = (event) => { 
+    event.preventDefault();
+    let interval = null;
+    if(isActive === false){
+      interval = setInterval(() => {
+        setTime((time) => time +10);
+      }, 10);
+    } else {
+      clearInterval(interval);
+    }
+    return () => {
+      clearInterval(interval);
+    };
+   }
+
+   const handleReset = () => {
+    let interval = null;
+    setIsActive(false);
+    setTime(0);
+    clearInterval(interval);
+  };
+  
+    return (  
+        <Wrapper>
+            <Logo/>
+            <Grids time={time} data={(e) => {handleStart()}} reset={handleReset}/>
+        </Wrapper>
+    );
 }
 
+export default Homepage;
