@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components'
-import Grids from '../components/Grids';
+import Grids from '../components/Grids'
 
-import Logo from '../components/Logo';
+import Logo from '../components/Logo'
 
 import BackgroundImg from './../assets/main_desktop_background.png'
 import MobileBackgroundImg from './../assets/main_mobile_background.png'

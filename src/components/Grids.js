@@ -1,12 +1,19 @@
 import React, { Component}  from 'react'
 import {Row, Col, Container} from 'react-bootstrap'
-// import charms
-import Mushroom from './../assets/charms-icons/mushroom.png'
-import Strawberry from './../assets/charms-icons/Strawberry.png'
-import Heart from './../assets/charms-icons/heart.png'
-import Butterfly from './../assets/charms-icons/butterfly.png'
+import { confirm } from "react-confirm-box";
+import Timer from './Timer';
 
-import Timer from './Timer'
+// import charms
+//import Mushroom from './../assets/charms-icons/mushroom.png'
+//import Strawberry from './../assets/charms-icons/Strawberry.png'
+//import Heart from './../assets/charms-icons/heart.png'
+//import Butterfly from './../assets/charms-icons/butterfly.png'
+
+// import new sets of charms
+import Clam from './../assets/charms-icons/clam.png'
+import Dolphin from './../assets/charms-icons/dolphin.png'
+import Lobster from './../assets/charms-icons/lobster.png'
+import PalmTree from './../assets/charms-icons/palm_tree.png'
 
 import styled from 'styled-components'
 // import { renderBoard, sudokuCreate } from '../layout/utils';
@@ -15,7 +22,6 @@ import styled from 'styled-components'
 const Box = styled.div`
     width: 80px;
     height: 80px;
-    border: solid 1px #000;
     margin:5px;
     border-radius: 10px; 
     background-color: #FAFAF8;
@@ -39,39 +45,34 @@ const GridItems = styled.div`
   align-items: flex-start;
   max-width: 365px;
   width: 100%;
-
-
-    @media (max-width: 834px) {
-
-    }
 `;
-const dataGrid = [[1, 0, 0, 2], [0, 0, 4, 0], [0, 1, 0, 3], [0, 3, 0, 4]];
+
 const finalResult = [[1, 4, 3, 2], [3, 2, 4, 1], [4, 1, 2, 3], [2, 3, 1, 4]];
 
 class Grids extends Component {
 
-    img_1 = <img src={Mushroom} draggable="true" alt="" width="80" height="80"/>;
-    img_2 = <img src={Butterfly} draggable="true" alt="" width="80" height="80"/>
-    img_3 = <img src={Strawberry} draggable="true" alt="" width="80" height="80"/>;
-    img_4 = <img src={Heart} draggable="true" alt="" width="80" height="80"/>;
-    original_Grid = [...dataGrid];
+    img_1 = <img src={Clam} draggable="true" alt="" width="60" height="62"/>;
+    img_2 = <img src={Dolphin} draggable="true" alt="" width="60" height="62"/>;
+    img_3 = <img src={Lobster} draggable="true" alt="" width="60" height="62"/>;
+    img_4 = <img src={PalmTree} draggable="true" alt="" width="60" height="62"/>;
+   
 
     constructor() {
         super();
-    
+        this.dataGrid = [[1, 0, 0, 2], [0, 0, 4, 0], [0, 1, 0, 3], [0, 3, 0, 4]];
+        this.original_Grid =JSON.stringify(this.dataGrid);
         this.state = {
-            sudukoPuzzle: dataGrid, selectedIndex: 0, wrongSelection: false,
+            sudukoPuzzle: this.dataGrid, selectedIndex: 0, wrongSelection: false,
             blockCell: this.countEmptyCell(), selectedRow: 0, selectedCol: 0, dragEnd: []
-        };   
+        };
     }
-
     handleDragOver = (event) => {
         event.preventDefault();
     };
 
     handleDragStart = (task) => {
         this.state = {
-            sudukoPuzzle: dataGrid, selectedIndex: task, wrongSelection: false,
+            sudukoPuzzle: this.dataGrid, selectedIndex: task, wrongSelection: false,
             blockCell: this.countEmptyCell(), selectedRow: 0, selectedCol: 0, dragEnd: [...this.state.dragEnd]
         };
     };
@@ -84,40 +85,67 @@ class Grids extends Component {
         let wrongSelection = false;
         const dragEnd = [...this.state.dragEnd];
         if (this.state.sudukoPuzzle[row][col] === 0 && this.state.selectedIndex !== 0) {
-            dataGrid[row][col] = this.state.selectedIndex;
+            this.dataGrid[row][col] = this.state.selectedIndex;
             if (finalResult[row][col] !== this.state.selectedIndex) {
                 event.target.classList.add('error');
+                event.target.classList.remove('success')
                 wrongSelection = true;
             } else if (finalResult[row][col] === this.state.selectedIndex) {
                 event.target.classList.remove('error');
+                event.target.classList.add('success');
                 wrongSelection = false;
             }
             dragEnd.push([row, col]);
             this.setState({
-                sudukoPuzzle: dataGrid, selectedIndex: 0, wrongSelection: wrongSelection,
+                sudukoPuzzle: this.dataGrid, selectedIndex: 0, wrongSelection: wrongSelection,
                 blockCell: this.countEmptyCell(), selectedRow: row, selectedCol: col,
                 dragEnd: dragEnd
             });
         } else {
             this.setState({
-                sudukoPuzzle: dataGrid, selectedIndex: 0, wrongSelection: wrongSelection, blockCell: this.countEmptyCell(),
+                sudukoPuzzle: this.dataGrid, selectedIndex: 0, wrongSelection: wrongSelection, blockCell: this.countEmptyCell(),
                 dragEnd: dragEnd
             });
         }
+
+        this.successAlert();
     };
 
+    successAlert= async () => {
+        let notMatch = true;
+        for(let row =0;row<4;row++){
+            for(let col= 0; col<4;col++) {
+                if(this.dataGrid[row][col]!== finalResult[row][col]) {
+                    notMatch=false;
+                    break;
+                }
+            }
+        }
+        if(notMatch) {
+            const result = await confirm("Well done! You completed the game");
+            if (result) {
+              console.log("You click yes!");
+              return;
+            }
+            console.log("You click No!");
+        }
+    }
+
     countEmptyCell = () => {
-        const count = dataGrid.toString().split(',').filter(cellPosition => cellPosition !== '0');
+        const count = this.dataGrid.toString().split(',').filter(cellPosition => cellPosition !== '0');
         return count.length;
     }
 
-    reversePosition = () => {
+    reversePosition = (event) => {
+
         if (this.state.dragEnd.length !== 0) {
             const lastSelection = [...this.state.dragEnd];
-            dataGrid[lastSelection[lastSelection.length - 1][0]][lastSelection[lastSelection.length - 1][1]] = 0;
+            event.target.classList.remove('error');
+            event.target.classList.remove('success');
+           this.dataGrid[lastSelection[lastSelection.length - 1][0]][lastSelection[lastSelection.length - 1][1]] = 0;
             lastSelection.pop();
             this.setState({
-                sudukoPuzzle: dataGrid, selectedIndex: 0, wrongSelection: false,
+                sudukoPuzzle: this.dataGrid, selectedIndex: 0, wrongSelection: false,
                 blockCell: this.countEmptyCell(), selectedRow: 0, selectedCol: 0,
                 dragEnd: lastSelection
             });
@@ -125,12 +153,18 @@ class Grids extends Component {
     }
         gameReset = () =>{
             if (this.state.dragEnd.length !== 0) {
-                console.log('gg')
-                this.dataGrid = [...this.original_Grid];
-            this.state = {
-                sudukoPuzzle: dataGrid, selectedIndex: 0, wrongSelection: false,
+                this.dataGrid = JSON.parse(this.original_Grid);
+            this.setState({
+                sudukoPuzzle: [...this.dataGrid], selectedIndex: 0, wrongSelection: false,
                 blockCell: this.countEmptyCell(), selectedRow: 0, selectedCol: 0, dragEnd: []
-            };
+            });
+            const totalBox = document.querySelectorAll('.box');
+            totalBox.forEach(function(res, idx){
+                if(document.getElementsByClassName('box')[idx].classList.contains('error') 
+                || document.getElementsByClassName('box')[idx].classList.contains('success'))
+                document.getElementsByClassName('box')[idx].classList.remove('error');
+                document.getElementsByClassName('box')[idx].classList.remove('success');
+            })
         }
     }
     componentDidMount() {  }
@@ -172,11 +206,11 @@ class Grids extends Component {
                                 <Box id="box15" className="box"></Box>
                                 <Box id="box16" className="box"></Box>
                         </Row>  */}
-
-                        </GridItems>     
-
+                        <div className='grid-button'>
                             <button id="btn__reset" onClick={this.gameReset}>Reset</button>
                             <button id="btn__reset" onClick={this.reversePosition}>Undo</button>           
+                        </div>
+                        </GridItems>                         
                     </Col>
 
                     <Col lg={1}></Col>
@@ -198,36 +232,36 @@ class Grids extends Component {
                     <div className='rounded__box'  onMouseDown={this.props.data}>
                     <div 
                         className="rounded__box--image" 
-                        style={{ backgroundImage: `url(${Mushroom})`}}
+                        style={{ backgroundImage: `url(${Clam})`}}
                         onDragOver={(e) => this.handleDragOver(e)}
                         onDrop={(e) => this.handleDoneDrop(e)}>
-                        <img src={Mushroom} alt="" draggable onDragStart={() => this.handleDragStart(1)} />
+                        <img src={Clam} alt="" draggable onDragStart={() => this.handleDragStart(1)} />
                              
                     
                     </div>
 
                     <div 
                         className="rounded__box--image" 
-                        style={{ backgroundImage: `url(${Butterfly})`}}
+                        style={{ backgroundImage: `url(${Dolphin})`}}
                         draggable="true"
                     >
-                        <img src={Butterfly} alt="" draggable onDragStart={() => this.handleDragStart(2)} />
+                        <img src={Dolphin} alt="" draggable onDragStart={() => this.handleDragStart(2)} />
                     </div>
 
                     <div 
                         className="rounded__box--image" 
-                        style={{ backgroundImage: `url(${Strawberry})`}}
+                        style={{ backgroundImage: `url(${Lobster})`}}
                         draggable="true"
                     >
-                         <img src={Strawberry} alt="" draggable onDragStart={() => this.handleDragStart(3)} />
+                         <img src={Lobster} alt="" draggable onDragStart={() => this.handleDragStart(3)} />
                     </div>
 
                     <div 
                         className="rounded__box--image" 
-                        style={{ backgroundImage: `url(${Heart})`}}
+                        style={{ backgroundImage: `url(${PalmTree})`}}
                         draggable="true"
                     >
-                         <img src={Heart} alt="" draggable onDragStart={() => this.handleDragStart(4)} />
+                         <img src={PalmTree} alt="" draggable onDragStart={() => this.handleDragStart(4)} />
                     </div>
 
                     </div>
@@ -240,8 +274,7 @@ class Grids extends Component {
                 {!this.state.wrongSelection && <p className='wrongSelection'><span>board starts with {this.state.blockCell} filled in blocks</span></p>}
              
             </Container>
-        </div>
-          
+        </div>     
     );
   }
 }

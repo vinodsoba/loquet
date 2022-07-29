@@ -35,3 +35,41 @@ code {
     height: 100%;
     border-radius: 50%;
 }
+
+
+.help__guide {
+  display: grid;
+  justify-content: center;
+  padding-top: 2em;
+}
+
+
+.grid-button {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+button#btn__reset {
+font-family: 'Fournier MT Regular SC';
+font-style: normal;
+font-weight: 400;
+font-size: 21px;
+line-height: 104.3%;
+background-color: transparent;
+border: none;
+/* or 22px */
+flex-grow: 1;
+text-align: center;
+letter-spacing: 0.06em;
+
+color: #FFFFFF;
+}
+
+.flex-container {
+  margin: 90px auto;
+}
+
+.box.error {
+  border: 2px solid red;
+}
