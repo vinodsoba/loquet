@@ -20,6 +20,7 @@
   font-weight: 500;
   line-height: 21.13px;
   text-align: center;
+  max-width: 318px;
 }
 
 .timer > span {
@@ -157,8 +158,6 @@
   flex-grow: 1;
 }
 
-
-
 .box {
   height: 62px;
   width: 60px;
@@ -169,6 +168,8 @@
   align-items: center;
   justify-content: center;
 }
+
+
 
 .box-opacity {
   opacity: 0.3;
