@@ -232,7 +232,7 @@ class Grids extends Component {
                         <Col lg={1}></Col>
                         <Col sm={12} md={10} lg={5} className="item2">
                             <div className="help__guide">
-                                <div className="help__guide--headline">
+                                <div className="help__guide--headline-how-to">
                                     <h4>HOW TO PLAY</h4>
                                 </div>
                                 <div className="help__guide--paragraph">
@@ -241,7 +241,7 @@ class Grids extends Component {
                                     </p>
                                 </div>
                             </div>
-                            <div>
+                            <div className="help__guide--container">
                                 <div className="help__guide--headline">
                                     <h4>DRAG AND DROP CHARMS</h4>
                                 </div>
