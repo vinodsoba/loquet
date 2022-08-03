@@ -66,10 +66,10 @@ letter-spacing: 0.06em;
 color: #FFFFFF;
 }
 
-.flex-container {
+/*.flex-container {
   margin: 90px auto;
 }
-
+*/
 .box.error {
   border: 2px solid red;
 }
