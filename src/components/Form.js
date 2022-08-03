@@ -42,24 +42,17 @@ class Form extends React.Component {
                 <input name="@return_url" type="hidden" value={this.state.form.return_url} />
                 <input name="@subscription_status" type="hidden" value="SUBSCRIBED" />
                 <input type="hidden" name="__form_id" value={this.state.form_id} />
-                    <p>
-                        <label>
-                            Email: <input name="email" type="text" value={this.state.form.email} onChange={this.changeHandler}/>
-                        </label>
-                    </p>
-                    <p>
-                        <label>
-                            First Name: <input name="firstname" type="text" value={this.state.form.firstname} onChange={this.changeHandler}/>
-                        </label>
-                    </p>
-                    <p>
-                        <label>
-                            Last Name: <input name="lastname" type="text" value={this.state.form.lastname} onChange={this.changeHandler}/>
-                        </label>
-                    </p>
-                    <p>
-                        <label>
-                            Country: <select name="country_id">
+                <label>
+                    Email <input name="email" type="text" value={this.state.form.email} className="input-border" onChange={this.changeHandler}/>
+                </label>
+                <label>
+                    First Name <input name="firstname" type="text" className="input-border" value={this.state.form.firstname} onChange={this.changeHandler}/>
+                </label>
+                <label>
+                    Last Name <input name="lastname" type="text" className="input-border" value={this.state.form.lastname} onChange={this.changeHandler}/>
+                </label>
+                 <label>
+                    Country <select name="country_id" className="input-border">
                                         <option value="AF">Afghanistan</option>
                                         <option value="AX">Åland Islands</option>
                                         <option value="AL">Albania</option>
@@ -311,7 +304,6 @@ class Form extends React.Component {
                                         <option value="ZW">Zimbabwe</option>
                                 </select>
                         </label>
-                    </p>
                     <button onClick={this.onSubmit}>Submit Form</button>
                 </form>
             </div>
