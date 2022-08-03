@@ -1,0 +1,56 @@
+.input-border, input {
+    border: none
+}
+
+label {
+    width: 100%;
+    border-bottom: 1px solid #000;
+    padding-bottom: 5px;
+    padding-top:5px;
+}
+
+.form {
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 25px;
+}
+.form p {
+    width: 244px;
+    height: 94.59px;
+    font-family: 'Fournier';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 113.3%;
+    text-align: center;
+    letter-spacing: 0.02em;
+    color: #000000;
+    padding-top: 1em;
+}
+
+.form h4 {
+    text-transform: uppercase;
+    font-family: 'Fournier';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 113.3%;
+    /* or 17px */
+    padding-top: 20px;
+    text-align: center;
+    letter-spacing: 0.02em;
+
+    color: #000000;
+
+}
+
+.form button {
+    height: 34px;
+    background: #332F2F;
+    border-radius: 23px;
+    color: #fff;
+    position: relative;
+    width: 100%;
+    margin-top: 2em;
+    margin-bottom: 1em;
+}
