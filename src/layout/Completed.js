@@ -1,7 +1,7 @@
 import React from 'react';
 import  { FaShareAlt } from 'react-icons/fa'
-import BackgroundImg from './../assets/completion_background_desktop.png'
-import MobileBackgroundImg from './../assets/completion_background_mobile.png'
+import BackgroundImg from './../assets/main_desktop_background.png'
+import MobileBackgroundImg from './../assets/main_mobile_background.png'
 import Logo from '../components/Logo';
 import styled from 'styled-components'
 import Form from '../components/Form';
@@ -24,11 +24,12 @@ const Wrapper = styled.div`
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;
+    
 
     @media (max-width: 834px) {
         background-image: url(${MobileBackgroundImg});
         background-size: cover;
-        height: 100%;
+        height: 100vh;
     }
 `; 
 
