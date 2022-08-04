@@ -52,7 +52,7 @@ class Form extends React.Component {
                     Last Name <input name="lastname" type="text" className="input-border" value={this.state.form.lastname} onChange={this.changeHandler}/>
                 </label>
                  <label>
-                    Country <select name="country_id" className="input-border">
+                    I live in <select name="country_id" className="input-border">
                                         <option value="AF">Afghanistan</option>
                                         <option value="AX">Åland Islands</option>
                                         <option value="AL">Albania</option>
@@ -304,7 +304,7 @@ class Form extends React.Component {
                                         <option value="ZW">Zimbabwe</option>
                                 </select>
                         </label>
-                    <button onClick={this.onSubmit}>Submit Form</button>
+                    <button onClick={this.onSubmit}>Submit</button>
                 </form>
             </div>
         )
