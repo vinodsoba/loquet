@@ -18,7 +18,8 @@ code {
 }
 
 .wrongSelection { 
-  display: flex;
+
+  display: none;
   justify-content: center;
   align-items: center;
 }
@@ -47,7 +48,7 @@ code {
 .grid-button {
   display: flex;
   justify-content: space-evenly;
-  width: 100%;
+  width: 94%;
 }
 
 button#btn__reset {

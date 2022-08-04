@@ -20,7 +20,7 @@ const Box = styled.div`
     height: 80px;
     margin:5px;
     border-radius: 10px; 
-    background-color: #FAFAF8;
+    background-color: #ffffff;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -223,8 +223,8 @@ class Grids extends Component {
                                     )
                                 }</Row>
                                 <div className='grid-button'>
-                                    <button id="btn__reset" onClick={this.gameReset}>Reset</button>
-                                    <button id="btn__reset" onClick={this.reversePosition}>Undo</button>
+                                    <button id="btn__reset" onClick={this.gameReset}>reset</button>
+                                    <button id="btn__reset" onClick={this.reversePosition}>undo</button>
                                 </div>
                             </GridItems>
                         </Col>

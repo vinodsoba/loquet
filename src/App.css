@@ -268,7 +268,7 @@
   bottom: 40px;
   width: 297px;
   height: 46px;
-  font-family: 'Fournier MT Pro';
+  font-family: 'Fournier';
   font-style: normal;
   font-weight: 400;
   font-size: 10px;
@@ -281,6 +281,7 @@
 
 }
 .completed__task > span.completed__task--counter  {
+  font-family: 'Fournier';
   color: #fff;
   padding-bottom: 5px;
 }
