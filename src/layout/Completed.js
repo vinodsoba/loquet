@@ -19,7 +19,7 @@ const Button = styled.button `
 
 `;
 
-const Wrapper = styled.div `
+const Wrapper = styled.div`
     background-image: url(${BackgroundImg});
     background-size: cover;
     background-repeat: no-repeat;
@@ -27,8 +27,8 @@ const Wrapper = styled.div `
 
     @media (max-width: 834px) {
         background-image: url(${MobileBackgroundImg});
+        background-size: cover;
         height: 100%;
-
     }
 `; 
 
