@@ -4,7 +4,7 @@ import BackgroundImg from './../assets/completion_background_desktop.png'
 import MobileBackgroundImg from './../assets/completion_background_mobile.png'
 import Logo from '../components/Logo';
 import styled from 'styled-components'
-import Form from '../components/Form';
+
 
 const Button = styled.button `
     max-width: ${props => props.formButton || '233px' };
@@ -50,19 +50,15 @@ export default class Completed extends React.Component {
             <Wrapper>
                 <Logo />
                  <div className="completed__task">
-                    <span className='completed__task--counter' >You completed it in 0.52 seconds!</span>
+                 <span className='completed__task--counter' >You completed it in 0.52 seconds!</span>
                     <button onClick={this.handleClick}>SHARE <FaShareAlt style={{ position: 'absolute', right: '5px'}} /></button>
-
                     <div className='form'>
-                        <h4>WIN A LOCKET</h4>
-                        <p>Sign up below to be in with the chance to win a 14kt locket necklace.</p>
-
-                        <div className='form-fields'>
-                        <Form />
+                        <div className='thank__you--container'>
+                            <h4>THANKS</h4>
+                            <p>We will be in touch if you win!</p>
+                            <a href=''>Take me back to Loquet London</a>
                         </div>
                     </div>
-
-                    <div className="copy">* By signing up you agree with our Terms and Conditions, Privacy Policy. To opt out, click Unsubscribe at the bottom of our emails.</div>
                 </div>
             </Wrapper>            
         )

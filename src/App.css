@@ -280,9 +280,9 @@
   color: #000000;
 
 }
-.completed__task > .form > .form-fields {
-  text-align: left;
-  width: 92%;
+.completed__task > span.completed__task--counter  {
+  color: #fff;
+  padding-bottom: 5px;
 }
 
 .completed__task > .form > .form-fields h5 {
@@ -307,6 +307,44 @@
 .completed__task > .copy {
   padding-top:2em;
   padding-bottom: 2em;
+}
+
+
+/* thank you*/
+.thank__you--container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 65px;
+}
+
+.thank__you--container > .form {
+  max-width: 531px;
+  width: 100%;
+  height: auto;
+  background-color: #fff;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top:2em;
+}
+
+.thank__you--container > .form p {
+  width: 243px;
+  height: 94.59px;
+  font-family: 'Fournier MT Pro';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 113.3%;
+  /* or 17px */
+  text-align: center;
+  letter-spacing: 0.02em;
+  color: #000000;
+  padding-top: 1em;;
 }
 
 
