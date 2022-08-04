@@ -249,13 +249,14 @@
 }
 
 .completed__task > .form p {
-  width: 243px;
-  height: 94.59px;
-  font-family: 'Fournier MT Pro';
+  max-width: 424px;
+  width: 100%;
+  height: 101.59px;
+  font-family: 'Fournier';
   font-style: normal;
   font-weight: 400;
   font-size: 15px;
-  line-height: 113.3%;
+  line-height: 154.3%;
   /* or 17px */
   text-align: center;
   letter-spacing: 0.02em;
@@ -317,7 +318,20 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 65px;
+  margin-top: 37px;
+  margin-bottom: 85px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.thank__you--container a, h4 {
+  color: #000;
+  padding-top: 1em;
+  font-family: 'Fournier';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
 }
 
 .thank__you--container > .form {
@@ -336,7 +350,7 @@
 .thank__you--container > .form p {
   width: 243px;
   height: 94.59px;
-  font-family: 'Fournier MT Pro';
+  font-family: 'Fournier';
   font-style: normal;
   font-weight: 400;
   font-size: 15px;

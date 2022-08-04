@@ -1,7 +1,7 @@
 import React from 'react';
-import  { FaShareAlt } from 'react-icons/fa'
 import BackgroundImg from './../assets/main_desktop_background.png'
 import MobileBackgroundImg from './../assets/main_mobile_background.png'
+import ShareIcon from './../assets/share-icon-01.svg'
 import Logo from '../components/Logo';
 import styled from 'styled-components'
 import Form from '../components/Form';
@@ -52,18 +52,18 @@ export default class Completed extends React.Component {
                 <Logo />
                  <div className="completed__task">
                     <span className='completed__task--counter' >You completed it in 0.52 seconds!</span>
-                    <button onClick={this.handleClick}>SHARE <FaShareAlt style={{ position: 'absolute', right: '5px'}} /></button>
+                    <button onClick={this.handleClick}>SHARE <span style={{ position: 'absolute', right: 10 }}><img src={ShareIcon} width="20" height="20" /></span></button>
 
                     <div className='form'>
-                        <h4>WIN A LOCKET</h4>
-                        <p>Sign up below to be in with the chance to win a 14kt locket necklace.</p>
+                        <h4>Congratulations! You completed Loquet Suduko!</h4>
+                        <p>For your chance to win a classic locket with exclusive Cynthia Rowley charm and Cynthia Rowley swimsuit simply add your details below.  Winners will be announced on the 31st August. Good luck!</p>
 
                         <div className='form-fields'>
                         <Form />
                         </div>
                     </div>
 
-                    <div className="copy">* By signing up you agree with our Terms and Conditions, Privacy Policy. To opt out, click Unsubscribe at the bottom of our emails.</div>
+                    <div className="copy">Terms and Conditions apply.  *By entering this competition please acknowledge you are signing up to Loquet and Cynthia Rowley's mailing list and you can unsubscribe at any time.</div>
                 </div>
             </Wrapper>            
         )

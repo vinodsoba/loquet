@@ -10,7 +10,7 @@ label {
 }
 
 .form {
-    padding: 10px;
+    padding: 20px;
     background-color: #fff;
     border-radius: 25px;
 }
@@ -28,6 +28,37 @@ label {
     padding-top: 1em;
 }
 
+
+.form-thankyou {
+    max-width: 531px;
+    width: 100%;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 25px;
+    margin-top: 2em;
+}
+
+.form-thankyou p {
+    width: 296px;
+    height: 34.59px;
+    font-family: 'Fournier';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 113.3%;
+    text-align: center;
+    letter-spacing: 0.02em;
+    color: #000000;
+    padding-top: 1em;
+}
+
+
+.form label {
+    font-family: 'Fournier';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px; 
+}
 .form h4 {
     text-transform: uppercase;
     font-family: 'Fournier';

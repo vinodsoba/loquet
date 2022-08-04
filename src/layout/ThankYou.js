@@ -1,7 +1,7 @@
 import React from 'react';
-import  { FaShareAlt } from 'react-icons/fa'
 import BackgroundImg from './../assets/main_desktop_background.png'
 import MobileBackgroundImg from './../assets/main_mobile_background.png'
+import ShareIcon from './../assets/share-icon-01.svg'
 import Logo from '../components/Logo';
 import styled from 'styled-components'
 
@@ -51,12 +51,12 @@ export default class Completed extends React.Component {
                 <Logo />
                  <div className="completed__task">
                  <span className='completed__task--counter' >You completed it in 0.52 seconds!</span>
-                    <button onClick={this.handleClick}>SHARE <FaShareAlt style={{ position: 'absolute', right: '5px'}} /></button>
-                    <div className='form'>
+                 <button onClick={this.handleClick}>SHARE <span style={{ position: 'absolute', right: 10 }}><img src={ShareIcon} width="20" height="20" /></span></button>
+                    <div className='form-thankyou'>
                         <div className='thank__you--container'>
-                            <h4>THANKS</h4>
-                            <p>We will be in touch if you win!</p>
-                            <a href=''>Take me back to Loquet London</a>
+                            <h4>Thank you</h4>
+                            <p>Have a wonderful, adventure filled summer!</p>
+                            <a href='https://www.loquetlondon.com/'>Take me back to Loquet London</a>
                         </div>
                     </div>
                 </div>
