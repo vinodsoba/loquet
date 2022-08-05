@@ -52,7 +52,7 @@ class Grids extends Component {
     img_3 = <img src={Lobster} draggable="true" alt="" width="60" height="62" />;
     img_4 = <img src={PalmTree} draggable="true" alt="" width="60" height="62" />;
 
-
+    counter=0;
     constructor() {
         super();
         this.dataGrid = [[{ data: 1, error: 0, success: 0 }, { data: 0, error: 0, success: 0 }, { data: 0, error: 0, success: 0 }, { data: 2, error: 0, success: 0 }],
@@ -132,7 +132,13 @@ class Grids extends Component {
                 startTimer: true,
                 openMsg: true
             });
+
+            setTimeout(()=>{
+                this.closeModal();
+               window.location.replace("https://loquet-vinodsoba.vercel.app/completed");
+               }, 3000)
         }
+        this.counter++;
     }
 
     countEmptyCell = () => {
