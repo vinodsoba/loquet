@@ -54,7 +54,6 @@ label {
 
 
 .form label {
-    font-family: 'Fournier';
     font-style: normal;
     font-weight: 400;
     font-size: 15px; 
@@ -78,6 +77,7 @@ label {
 .form button {
     height: 34px;
     background: #332F2F;
+    border: none;
     border-radius: 23px;
     color: #fff;
     position: relative;
