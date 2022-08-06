@@ -29,7 +29,7 @@ const Wrapper = styled.div`
     @media (max-width: 834px) {
         background-image: url(${MobileBackgroundImg});
         background-size: cover;
-        height: 100vh;
+        height: 100%;
     }
 `; 
 
