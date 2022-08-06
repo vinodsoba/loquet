@@ -23,7 +23,7 @@ const Wrapper = styled.div`
     background-image: url(${BackgroundImg});
     background-size: cover;
     background-repeat: no-repeat;
-    height: 100vh;
+    height: 100%;
     
 
     @media (max-width: 834px) {
