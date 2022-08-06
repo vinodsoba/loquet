@@ -38,18 +38,19 @@ class Form extends React.Component {
         return (
             <div>
                 <form action="https://api.ometria.com/forms/signup" method="post">
+                    <fieldset>
                 <input name="@account" type="hidden" value={this.state.form.account} />
                 <input name="@return_url" type="hidden" value={this.state.form.return_url} />
                 <input name="@subscription_status" type="hidden" value="SUBSCRIBED" />
                 <input type="hidden" name="__form_id" value={this.state.form_id} />
                 <label>
-                    Email <input name="email" type="text" value={this.state.form.email} className="input-border" onChange={this.changeHandler}/>
+                    Email <input name="email" type="text" style={{width: "370px", padding: "5px"}} required value={this.state.form.email} className="input-border" onChange={this.changeHandler}/>
                 </label>
                 <label>
-                    First Name <input name="firstname" type="text" className="input-border" value={this.state.form.firstname} onChange={this.changeHandler}/>
+                    First Name <input name="firstname" type="text" className="input-border" style={{width: "370px", padding: "5px"}} value={this.state.form.firstname} onChange={this.changeHandler}/>
                 </label>
                 <label>
-                    Last Name <input name="lastname" type="text" className="input-border" value={this.state.form.lastname} onChange={this.changeHandler}/>
+                    Last Name <input name="lastname" type="text" className="input-border" style={{width: "370px", padding: "5px"}} value={this.state.form.lastname} onChange={this.changeHandler}/>
                 </label>
                  <label>
                     I live in <select name="country_id" className="input-border">
@@ -287,7 +288,7 @@ class Form extends React.Component {
                                         <option value="UG">Uganda</option>
                                         <option value="UA">Ukraine</option>
                                         <option value="AE">United Arab Emirates</option>
-                                        <option value="GB">United Kingdom</option>
+                                        <option value="GB" selected>United Kingdom</option>
                                         <option value="US">United States</option>
                                         <option value="UM">United States Minor Outlying Islands</option>
                                         <option value="UY">Uruguay</option>
@@ -305,6 +306,7 @@ class Form extends React.Component {
                                 </select>
                         </label>
                     <button onClick={this.onSubmit}>Submit</button>
+                    </fieldset>
                 </form>
             </div>
         )
