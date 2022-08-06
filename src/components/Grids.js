@@ -135,7 +135,7 @@ class Grids extends Component {
 
             setTimeout(()=>{
                 this.closeModal();
-               window.location.replace("https://loquet-vinodsoba.vercel.app/completed");
+               window.location.replace("./completed");
                }, 3000)
         }
         this.counter++;

@@ -52,7 +52,7 @@ export default class Completed extends React.Component {
                 <Logo />
                  <div className="completed__task">
                     <span className='completed__task--counter' >You completed it in 0.52 seconds!</span>
-                    <button onClick={this.handleClick}>SHARE <span style={{ position: 'absolute', right: 10 }}><img src={ShareIcon} width="20" height="20" /></span></button>
+                    <button>SHARE <span style={{ position: 'absolute', right: '13px', top: '3px' }}><img src={ShareIcon} width="20" height="20" /></span></button>
 
                     <div className='form'>
                         <h4>Congratulations! You completed Loquet Suduko!</h4>

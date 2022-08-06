@@ -265,8 +265,8 @@
 }
 
 .completed__task > .copy {
-  position: absolute;
-  bottom: 40px;
+  position: relative;
+  bottom: 20px;
   width: 297px;
   height: 46px;
   font-family: 'Fournier';
@@ -301,6 +301,7 @@
   width: 233px;
   height: 34px;
   background: #332F2F;
+  border: none;
   border-radius: 23px;
   color: #fff;
   position: relative;
