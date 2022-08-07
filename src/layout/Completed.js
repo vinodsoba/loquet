@@ -38,21 +38,28 @@ export default class Completed extends React.Component {
     constructor(props){
         super(props);
             this.handleClick = this.handleClick.bind(this);
+            this.timer = JSON.parse(localStorage.getItem('timer'));
         
     }
-
     handleClick() {
         alert("button is working");
     }
-    
+    handleWhatsApp() {
+        window.open('https://wa.me/79766544432?text='+ document.getElementById('timerText').innerText)
+    }
     render() {
         
         return (
             <Wrapper>
                 <Logo />
                  <div className="completed__task">
-                    <span className='completed__task--counter' >You completed it in 0.52 seconds!</span>
-                    <button>SHARE <span style={{ position: 'absolute', right: '13px', top: '3px' }}><img src={ShareIcon} width="20" height="20" /></span></button>
+                 <p id="timerText" style={{ fontFamily: 'Fournier', fontSize: '21px', color: '#fff'}}>You completed it in
+                        <span className='digits min'>{
+                            this.timer.currentMin.toLocaleString('en-US', { minimumIntegerDigits: 2, useGrouping: false })}
+                            :</span>
+                        <span className='seconds'>{this.timer.currentSec.toLocaleString('en-US', { minimumIntegerDigits: 2, useGrouping: false })}</span>
+                        seconds!</p>
+                    <button onClick={this.handleWhatsApp}>SHARE <span style={{ position: 'absolute', right: '13px', top: '3px' }}><img src={ShareIcon} alt="share icon" width="20" height="20" /></span></button>
 
                     <div className='form'>
                         <h4>Congratulations! You completed Loquet Suduko!</h4>
