@@ -14,7 +14,6 @@ import PalmTree from './../assets/charms-icons/palm_tree.png'
 import styled from 'styled-components'
 // import { renderBoard, sudokuCreate } from '../layout/utils';
 
-
 const Box = styled.div`
     width: 80px;
     height: 80px;
@@ -300,5 +299,4 @@ class Grids extends Component {
         );
     }
 }
-
 export default Grids;
