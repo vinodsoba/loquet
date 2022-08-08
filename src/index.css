@@ -74,3 +74,11 @@ color: #FFFFFF;
 .box.error {
   border: 2px solid red;
 }
+
+.seconds {
+  padding-right: 5px;
+}
+.digits.min {
+  padding-left: 5px;
+
+}

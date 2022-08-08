@@ -11,15 +11,17 @@ import Dolphin from './../assets/charms-icons/dolphin.png'
 import Lobster from './../assets/charms-icons/lobster.png'
 import PalmTree from './../assets/charms-icons/palm_tree.png'
 
+
+//import { renderBoard } from '../layout/utils';
+
 import styled from 'styled-components'
-// import { renderBoard, sudokuCreate } from '../layout/utils';
 
 const Box = styled.div`
     width: 80px;
     height: 80px;
     margin:5px;
     border-radius: 10px; 
-    background-color: #ffffff;
+    background-color: #FAFAF8;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -42,7 +44,6 @@ const GridItems = styled.div`
   width: 100%;
 `;
 
-const finalResult = [[1, 4, 3, 2], [3, 2, 4, 1], [4, 1, 2, 3], [2, 3, 1, 4]];
 
 class Grids extends Component {
 
@@ -50,46 +51,59 @@ class Grids extends Component {
     img_2 = <img src={Dolphin} draggable="true" alt="" width="60" height="62" />;
     img_3 = <img src={Lobster} draggable="true" alt="" width="60" height="62" />;
     img_4 = <img src={PalmTree} draggable="true" alt="" width="60" height="62" />;
-
-    counter=0;
+     data = {
+        message: 'Check out this website', // required
+        title: 'Awesome Website', // optional parameter
+        url: 'https://www.awesomeexample.com', // optional parameter
+      };
+    counter = 0;
     constructor() {
         super();
-        this.dataGrid = [[{ data: 1, error: 0, success: 0 }, { data: 0, error: 0, success: 0 }, { data: 0, error: 0, success: 0 }, { data: 2, error: 0, success: 0 }],
-        [{ data: 0, error: 0, success: 0 }, { data: 0, error: 0, success: 0 }, { data: 4, error: 0, success: 0 }, { data: 0, error: 0, success: 0 }],
-        [{ data: 0, error: 0, success: 0 }, { data: 1, error: 0, success: 0 }, { data: 0, error: 0, success: 0 }, { data: 3, error: 0, success: 0 }],
-        [{ data: 0, error: 0, success: 0 }, { data: 3, error: 0, success: 0 }, { data: 0, error: 0, success: 0 }, { data: 4, error: 0, success: 0 }]]
+        this.initBoard();
+        this.resetAfter24Hours();
+        
+          
+        
 
-        this.original_Grid = JSON.stringify(this.dataGrid);
-        this.state = {
-            sudukoPuzzle: this.dataGrid, selectedIndex: 0, wrongSelection: false,
-            blockCell: this.countEmptyCell(), selectedRow: 0, selectedCol: 0, dragEnd: [], startTimer: false, openMsg: false
-        };
     }
     handleDragOver = (event) => {
         event.preventDefault();
     };
+    initBoard = () => {
+        this.renderBoard = JSON.stringify(renderBoard());
+        this.dataGrid = JSON.parse(this.renderBoard).renderGrid;
+        this.finalResult = JSON.parse(this.renderBoard).finalResult;
+        this.state = {
+            sudukoPuzzle: [...this.dataGrid], selectedIndex: 0, wrongSelection: false,
+            blockCell: this.countEmptyCell(), selectedRow: 0, selectedCol: 0, dragEnd: [], startTimer: false, openMsg: false,
+            resetTime: JSON.parse(this.renderBoard).resetTime,
+        };
+    }
 
     handleDragStart = (task) => {
+        console.log('touchmove')
         this.state = {
             sudukoPuzzle: this.dataGrid, selectedIndex: task, wrongSelection: false, openMsg: false,
-            blockCell: this.countEmptyCell(), selectedRow: 0, selectedCol: 0, dragEnd: [...this.state.dragEnd], startTimer: true
+            blockCell: this.countEmptyCell(), selectedRow: 0, selectedCol: 0, dragEnd: [...this.state.dragEnd],
+            startTimer: true, resetTime: this.state.resetTime
         };
-    };
+    }
 
     handleDoneDrop = (event) => {
         const data = event.dataTransfer.getData('id');
     };
 
     handleToDoDrop = (event, row, col) => {
+        console.log('touchend')
         let wrongSelection = false;
         const dragEnd = [...this.state.dragEnd];
         if (this.state.sudukoPuzzle[row][col].data === 0 && this.state.selectedIndex !== 0) {
             this.dataGrid[row][col].data = this.state.selectedIndex;
-            if (finalResult[row][col] !== this.state.selectedIndex) {
+            if (this.finalResult[row][col] !== this.state.selectedIndex) {
                 this.dataGrid[row][col].error = 1;
                 this.dataGrid[row][col].success = 0;
                 wrongSelection = true;
-            } else if (finalResult[row][col] === this.state.selectedIndex) {
+            } else if (this.finalResult[row][col] === this.state.selectedIndex) {
                 this.dataGrid[row][col].error = 0;
                 this.dataGrid[row][col].success = 1;
                 wrongSelection = false;
@@ -100,14 +114,16 @@ class Grids extends Component {
                 blockCell: this.countEmptyCell(), selectedRow: row, selectedCol: col,
                 dragEnd: dragEnd,
                 startTimer: true,
-                openMsg: false
+                openMsg: false,
+                resetTime: this.state.resetTime
             });
         } else {
             this.setState({
                 sudukoPuzzle: this.dataGrid, selectedIndex: 0, wrongSelection: wrongSelection, blockCell: this.countEmptyCell(),
                 dragEnd: dragEnd,
                 startTimer: true,
-                openMsg: false
+                openMsg: false,
+                resetTime: this.state.resetTime
             });
         }
 
@@ -118,7 +134,7 @@ class Grids extends Component {
         let notMatch = true;
         for (let row = 0; row < 4; row++) {
             for (let col = 0; col < 4; col++) {
-                if (this.dataGrid[row][col].data !== finalResult[row][col]) {
+                if (this.dataGrid[row][col].data !== this.finalResult[row][col]) {
                     notMatch = false;
                     break;
                 }
@@ -128,14 +144,15 @@ class Grids extends Component {
             this.setState({
                 sudukoPuzzle: this.state.sudukoPuzzle, selectedIndex: 0, wrongSelection: this.state.wrongSelection, blockCell: this.countEmptyCell(),
                 dragEnd: this.state.dragEnd,
-                startTimer: true,
-                openMsg: true
+                startTimer: false,
+                openMsg: true,
+                resetTime: this.state.resetTime
             });
 
-            setTimeout(()=>{
+            setTimeout(() => {
                 this.closeModal();
-               window.location.replace("./completed");
-               }, 3000)
+                window.location.replace("./completed");
+            }, 3000)
         }
         this.counter++;
     }
@@ -163,33 +180,44 @@ class Grids extends Component {
                 blockCell: this.countEmptyCell(), selectedRow: 0, selectedCol: 0,
                 dragEnd: lastSelection,
                 startTimer: true,
-                openMsg: false
+                openMsg: false,
+                resetTime: this.state.resetTime
             });
         }
     }
     gameReset = () => {
         if (this.state.dragEnd.length !== 0) {
-            this.dataGrid = JSON.parse(this.original_Grid);
+            this.renderBoard = JSON.stringify(renderBoard());
+            this.dataGrid = JSON.parse(this.renderBoard).renderGrid;
+            this.finalResult = JSON.parse(this.renderBoard).finalResult;
             this.setState({
                 sudukoPuzzle: [...this.dataGrid], selectedIndex: 0, wrongSelection: false,
-                blockCell: this.countEmptyCell(), selectedRow: 0, selectedCol: 0, dragEnd: [],
-                startTimer: false,
-                openMsg: false
+                blockCell: this.countEmptyCell(), selectedRow: 0, selectedCol: 0, dragEnd: [], startTimer: false, openMsg: false,
+                resetTime: JSON.parse(this.renderBoard).resetTime
             });
         }
     }
     closeModal = () => {
-        this.setState({ sudukoPuzzle: this.state.sudukoPuzzle, selectedIndex: 0, wrongSelection: this.state.wrongSelection, blockCell: this.countEmptyCell(),
+        this.setState({
+            sudukoPuzzle: this.state.sudukoPuzzle, selectedIndex: 0, wrongSelection: this.state.wrongSelection, blockCell: this.countEmptyCell(),
             dragEnd: [...this.state.dragEnd],
             startTimer: false,
-            openMsg: false })
+            openMsg: false,
+            resetTime: this.state.resetTime
+        })
     }
-    nextPath(path) {
-        this.props.history.push(path);
-      }
+
+    resetAfter24Hours() {
+        setInterval(() => {
+            var d = new Date(); // for now
+            if (d.getHours() == 23 && d.getMinutes() == 59 && (d.getSeconds() > 55 || d.getSeconds() < 59) && !this.state.startTimer) {
+                this.gameReset();
+            }
+        }, 1000);
+    }
     componentDidMount() { }
     render() {
-        const blockCell = this.state.blockCell;
+        const { blockCell } = this.state;
 
         return (
             <div className='flex-container'>
@@ -197,7 +225,7 @@ class Grids extends Component {
                     show={this.state.openMsg}
                     title="congratulations"
                     type="success"
-                    text="You completed the game in 00:00:00"
+                    text="You completed the game"
                     showCancelButton
                     onConfirm={() => { // eslint-disable-line no-console
                         this.closeModal()
@@ -209,14 +237,14 @@ class Grids extends Component {
                 <Container>
                     <Row>
                         <Col sm={12} md={6} lg={4} className="item1">
-                            <div className='timer'><Timer time={this.state.startTimer} /></div>
+                            <div className='timer'><Timer time={this.state.startTimer} resetTime={this.state.resetTime}/></div>
                             <GridItems>
                                 <Row> {
                                     this.state.sudukoPuzzle && this.state.sudukoPuzzle.map((res, row) =>
 
                                     (res && res.map((finalRen, col) =>
                                         <Box id={`box_${row}_${col}`} className={`box ${finalRen.error === 1 ? 'error' : ''}${finalRen.success === 1 ? 'success' : ''}`} key={`box_${row}_${col}`} onDragOver={(event) => this.handleDragOver(event)}
-                                            onDrop={(e) => this.handleToDoDrop(e, row, col)}>
+                                        onDrop={(e) => this.handleToDoDrop(e, row, col)} onTouchEnd={(e) => this.handleToDoDrop(e, row, col)}>
                                             {finalRen.data === 1 && this.img_1}
                                             {finalRen.data === 2 && this.img_2}
                                             {finalRen.data === 3 && this.img_3}
@@ -256,7 +284,7 @@ class Grids extends Component {
                                         style={{ backgroundImage: `url(${Clam})` }}
                                         onDragOver={(e) => this.handleDragOver(e)}
                                         onDrop={(e) => this.handleDoneDrop(e)}>
-                                        <img src={Clam} alt="" draggable onDragStart={() => this.handleDragStart(1)} />
+                                        <img src={Clam} alt="" draggable onTouchStart={() => this.handleDragStart(1)} onDragStart={() => this.handleDragStart(1)} />
 
 
                                     </div>
@@ -266,7 +294,7 @@ class Grids extends Component {
                                         style={{ backgroundImage: `url(${Dolphin})` }}
                                         draggable="true"
                                     >
-                                        <img src={Dolphin} alt="" draggable onDragStart={() => this.handleDragStart(2)} />
+                                        <img src={Dolphin} alt="" onTouchStart={() => this.handleDragStart(2)} draggable onDragStart={() => this.handleDragStart(2)} />
                                     </div>
 
                                     <div
@@ -274,7 +302,7 @@ class Grids extends Component {
                                         style={{ backgroundImage: `url(${Lobster})` }}
                                         draggable="true"
                                     >
-                                        <img src={Lobster} alt="" draggable onDragStart={() => this.handleDragStart(3)} />
+                                        <img src={Lobster} alt="" draggable  onTouchStart={() => this.handleDragStart(3)} onDragStart={() => this.handleDragStart(3)} />
                                     </div>
 
                                     <div
@@ -282,7 +310,7 @@ class Grids extends Component {
                                         style={{ backgroundImage: `url(${PalmTree})` }}
                                         draggable="true"
                                     >
-                                        <img src={PalmTree} alt="" draggable onDragStart={() => this.handleDragStart(4)} />
+                                        <img src={PalmTree} alt="" draggable onTouchStart={() => this.handleDragStart(4)} onDragStart={() => this.handleDragStart(4)} />
                                     </div>
 
                                 </div>
