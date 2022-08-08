@@ -16,6 +16,7 @@ import PalmTree from './../assets/charms-icons/palm_tree.png'
 
 import styled from 'styled-components'
 
+
 const Box = styled.div`
     width: 80px;
     height: 80px;
@@ -197,6 +198,7 @@ class Grids extends Component {
             });
         }
     }
+    
     closeModal = () => {
         this.setState({
             sudukoPuzzle: this.state.sudukoPuzzle, selectedIndex: 0, wrongSelection: this.state.wrongSelection, blockCell: this.countEmptyCell(),
@@ -327,5 +329,4 @@ class Grids extends Component {
         );
     }
 }
-
 export default Grids;
