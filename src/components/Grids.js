@@ -12,7 +12,7 @@ import Lobster from './../assets/charms-icons/lobster.png'
 import PalmTree from './../assets/charms-icons/palm_tree.png'
 
 
-import { renderBoard } from '../layout/utils';
+//import { renderBoard } from '../layout/utils';
 
 import styled from 'styled-components'
 
