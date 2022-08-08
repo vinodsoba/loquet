@@ -299,5 +299,4 @@ class Grids extends Component {
         );
     }
 }
-
 export default Grids;
